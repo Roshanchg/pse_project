@@ -6,11 +6,257 @@
         <title>Eco Yatra</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/index.css' %}">
-        <script src="javascript/index.js" async defer></script>
-        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     </head>
     <body>
-        
+        <section id="home">
+            <div id="behind"></div>
+            <div id="front-home">
+                <div id="nav-bar">
+                    <div id="nav-left">
+                        <span id="webname" style="line-height: 1;">&nbsp;Eco<br>Yatra</span>
+                    </div>
+                    <div id="nav-middle">
+                        <a id="home-ref" href="#">Home</a>
+                        <a id="about-ref" href="#">About Us</a>
+                        <a id="packages-ref" href="#">Packages</a>
+                    </div>
+                    <div id="nav-right">
+                        <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960"  fill="#FF7A00">
+                            <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
+                        </svg>
+                        {% if True %}
+                            <img src="{% static 'Images/account.svg' %}">
+                        {% else %}
+                            <img src="{% static 'Images/eye_open.svg %'}">
+                        {% endif %} 
+                    </div>
+                </div>
+                <div id="title-div"><span>Your Imagination Is</span> <p>Your Only Limit</p></div>
+                <div id="title-sub-div">
+                    <span>Your satisfaction is our main priority</span>
+                </div>
+                <button id="title-button">Discover more</button>
+            </div>
+        </section>
+        <section id="mixed">
+            <div id="mixed-top">
+                <div id="mt-ticket">
+                    <img src="">
+                    <span class="mt-bolder"></span>
+                    <span class="mt-lighter"></span>
+                </div>
+                
+                <div id="mt-booking">
+                    <img src="">
+                    <span class="mt-bolder"></span>
+                    <span class="mt-lighter"></span>
+                </div>
+                
+                <div id="mt-toor">
+                    <img src="">
+                    <span class="mt-bolder"></span>
+                    <span class="mt-lighter"></span>
+                </div>
+            </div>
+            <div id="mixed-bottom">
+                <div id="mb-title">
+                    <span style="font-weight: 600;font-size: 30px;">
+                        
+                    </span>
+                    <span class="">
+
+                    </span>
+                </div>
+                <div id="mb-info">
+                    <div>
+                        <img src="">
+                        <span class="mb-info-bolder"></span>
+                        <span class="mb-info-lighter"></span>
+                    </div>
+                    <div>
+                        <img src="">
+                        <span class="mb-info-bolder"></span>
+                        <span class="mb-info-lighter"></span>
+                    </div>
+                    <div>
+                        <img src="">
+                        <span class="mb-info-bolder"></span>
+                        <span class="mb-info-lighter"></span>
+                    </div>
+                    <div>
+                        <img src="">
+                        <span class="mb-info-bolder"></span>
+                        <span class="mb-info-lighter"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="popular">
+            <span id="pop-title" >Our Popular Destinations</span>
+            <div map-div>
+                <img src="">
+            </div>
+            <div id="destinations">
+                <div class="destination-single">
+                    <img src="">
+                    <span class="pop-dest-title">
+
+                    </span>
+                    <span class="pop-dest-detail">
+
+                    </span>
+                </div>
+
+                <div class="destination-single">
+                    <img src="">
+                    <span class="pop-dest-title">
+
+                    </span>
+                    <span class="pop-dest-detail">
+                        
+                    </span>
+                </div>
+
+                <div class="destination-single">
+                    <img src="">
+                    <span class="pop-dest-title">
+
+                    </span>
+                    <span class="pop-dest-detail">
+                        
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section id="recommendations">
+            <span id="rec-title">Best Packages For You</span>
+            <div id="filters">
+                <button >1</button>
+                <button >1</button>
+                <button >1</button>
+                <button >1</button>
+                <button >1</button>
+                <button >1</button>
+            </div>
+            <div id="discover-contents-closed">
+                <div class="discover-content">
+                    <img src="">
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span></span>
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <button id="discover-more">Discover More</button>
+        </section>
+        <section id="info">
+            <span id="info-title">Book Your Next Trip in 3 Easy Steps</span>
+            <span class="">Easy and Fast</span>
+            <div id="info-left">
+                <div class="info-left-single">
+                    <img src="">
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                
+                <div class="info-left-single">
+                    <img src="">
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                
+                <div class="info-left-single">
+                    <img src="">
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div id="info-right">
+                <!-- later  -->
+            </div>
+            <div id="info-right-over">
+                <!--later -->
+            </div>
+        </section>
+        <section id="about">
+            <span>What People Say About Us</span>
+            <div id="about-back">
+
+            </div>
+            <div id="about-info">
+                <img src="">
+                <span></span>
+                <span>-Noboy</span>
+            </div>
+        </section>
+        <section id="contacts">
+            <div id="contact-top">
+                <span>Subscribe to get information, latest news and other<br>
+                interesting offers about us</span>
+                <img src="" id="contacts-overlay">
+                <div id="contact-input">
+                    <img src="">
+                    <form name="contacts-form" id="contacts-form">
+                    <input type="email" placeholder="Your email" name="contactemail">
+                    <button type="submit" >Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div id="contacts-bottom">
+                <div id="sub-left">
+                    <span></span><br>
+                    <span></span>
+                </div>
+                <div id="sub-middle">
+                    <div id="middle-left">
+                        <span>Company</span>
+                        <span>About</span>
+                        <span>Careers</span>
+                        <span>Mobile</span>
+
+                    </div>
+                    <div id="middle-mid">
+                        <span>Contact</span>
+                        <span>HelpFAQ</span>
+                        <span>Press</span>
+                        <span>Affiliates</span>
+                    </div>
+                    <div id="middle-right">
+                        <span>More</span>
+                        <span>Attributes</span>
+                        <span>Airline</span>
+                        <span>Low fare tips</span>
+                    </div>
+                </div>
+                <div id="sub-right">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                </div>
+            </div>
+            <span id="cc">All rights reserved@raghav.don</span>
+        </section>
+
+        <script src="{% static 'javascript/index.js' %}" async defer></script>
     </body>
 </html>
