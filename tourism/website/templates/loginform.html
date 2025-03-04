@@ -11,7 +11,6 @@
             var eyeClosedSrc = "{% static 'Images/eye_closed.svg' %}";  
             var eyeOpenSrc = "{% static 'Images/eye_open.svg' %}";      
         </script>
-        <script src="{% static 'javascript/loginform.js' %}"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +23,7 @@
                 <span id="title-head">Welcome back!</span>
                 <span id="title-sub">Enter your Credentials to access your account</span>
             </div>
-            <form action="" method="POST" name="mainform" id="main-form">
+            <form name="mainform" id="main-form">
                 <label for="email">Email address</label><br>
                 <input type="email" name="email" id="email" class="input-field" placeholder="abc@example.com" ><br>
                 <label for="password">Password</label> <br>
@@ -39,6 +38,7 @@
             </form>
             <span id="another-form">Don't have an account?&nbsp;<a href="#LOL">Sign Up</a></span>
         </div>
+        <script src="{% static 'javascript/loginform.js' %}"></script>
         <div id="img-div">
         </div>
     </body>
