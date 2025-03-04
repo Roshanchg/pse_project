@@ -1,0 +1,46 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+*.env
+*.venv
+
+# Django secret key and settings (adjust if necessary)
+*.sqlite3
+/db.sqlite3
+*.log
+/config/settings/local.py  # If using environment-specific settings
+
+# Media files (user uploads)
+media/
+
+# Node.js dependencies (if using npm/yarn)
+node_modules/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MacOS and system files
+.DS_Store
+Thumbs.db
+
+# Pip dependency files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Migrations (optional, if you regenerate them frequently)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Docker
+docker-compose.override.yml
+
+/test/
+test/*
