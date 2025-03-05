@@ -48,7 +48,7 @@
             </div>
         </section>
         <section id="mixed">
-            <div id="mixed-top">
+            <div id="mixed-top" >
                 <div id="mt-ticket">
                     <img src="{% static 'Images/ticket.png' %}">
                     <span class="mt-bolder">Ticket Booking</span>
@@ -72,7 +72,7 @@
             </div>
             <div id="mixed-bottom">
                 <div id="mb-title">
-                    <span class="title-for-bolder">
+                    <span class="title-for-bolder" onclick="window.location.href='#mixed'">
                         We always try to give you <br>the best service
                     </span>
                     <span id="mb-subtitle">
@@ -105,7 +105,7 @@
             </div>
         </section>
         <section id="popular">
-            <span id="pop-title" >Our Popular Destinations</span>
+            <span id="pop-title" onclick="window.location.href='#popular'" >Our Popular Destinations</span>
             <div id='map-div'>
                 <div class="locators" id="pokhara-locator">
                     <div></div>
@@ -154,7 +154,7 @@
                     <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
                 </div>
                 <div class="destination-single">
-                    <img src="{% static 'Images/pokhara' %}" class="popular-images">
+                    <img src="{% static 'Images/pokhara.png' %}" class="popular-images">
                     <span class="pop-dest-title">
                         Pokhara
                     </span>
@@ -166,68 +166,148 @@
             </div>
         </section>
         <section id="recommendations">
-            <span id="rec-title">Best Packages For You</span>
+            <span id="rec-title" onclick="window.location.href='#recommendations'">Best Packages For You</span>
             <div id="filters">
-                <button onclick="">1</button>
-                <button >1</button>
-                <button >1</button>
-                <button >1</button>
-                <button >1</button>
-                <button >1</button>
+                <button onclick="" id="hot-button" class="filter-buttons" >Hot Deals</button>
+                <button id="backpack-button" class="filter-buttons">Backpack</button>
+                <button id="honeymoon-button" class="filter-buttons">Honeymoon</button>
+                <button id="rafting-button" class="filter-buttons">Rafting</button>
+                <button id="himalayan-button" class="filter-buttons">Himalayan</button>
+                <button id="more-button" class="filter-buttons">More</button>
             </div>
             <div id="discover-contents-closed">
                 <div class="discover-content">
-                    <img src="">
-                    <div>
-                        <span></span>
-                        <span></span>
+                    <img src="{% static 'Images/pokhara.png' %}">
+                    <div class="package-info">
+                        <span class="package-time">3 Days, 2 Nights</span>
+                        <span class="package-rate">NRP 999 / Person</span>
                     </div>
-                    <span></span>
-                    <div>
-                        <span></span>
-                        <span></span>
+                    <span class="package-desc">Explore the Beauty of the island for 3 days
+                        <br>
+                        and 2 nights with our travel agency</span>
+                    <div class="discover-content-bottom">
+                        <div>
+                        <img src="{% static 'Images/location.svg' %}" class="location-icon">
+                        <span class="package-location">Pokhara</span>
+                        </div>
+                        <span class="know-more">Know More</span>
+                    </div>
+                </div>
+
+                <div class="discover-content">
+                    <img src="{% static 'Images/mustang.png' %}">
+                    <div class="package-info">
+                        <span class="package-time">3 Days, 2 Nights</span>
+                        <span class="package-rate">NRP 999 / Person</span>
+                    </div>
+                    <span class="package-desc">Enjoy the Shrimes and blossoms here in 
+                        <br>
+                        this beautiful country</span>
+                    <div class="discover-content-bottom">
+                        <div >
+                        <img src="{% static 'Images/location.svg' %}" class="location-icon">
+                        <span class="package-location">Mustang</span></div>
+                        <span class="know-more">Know More</span>
+                    </div>
+                </div>
+
+                <div class="discover-content">
+                    <img src="{% static 'Images/rara.png' %}">
+                    <div class="package-info">
+                        <span class="package-time">3 Days, 2 Nights</span>
+                        <span class="package-rate">NRP 999 / Person</span>
+                    </div>
+                    <span class="package-desc">Explore the majestic mountains and <br>
+                        landscapes day and nights</span>
+                    <div class="discover-content-bottom">
+                        <div >
+                        <img src="{% static 'Images/location.svg' %}" class="location-icon">
+                        <span class="package-location">Rara</span></div>
+                        <span class="know-more">Know More</span>
                     </div>
                 </div>
             </div>
             <button id="discover-more">Discover More</button>
         </section>
         <section id="info">
-            <span id="info-title">Book Your Next Trip in 3 Easy Steps</span>
-            <span class="">Easy and Fast</span>
-            <div id="info-left">
-                <div class="info-left-single">
-                    <img src="">
-                    <div>
-                        <span></span>
-                        <span></span>
+            <span id="info-title" onclick="window.location.href='#info'">Book Your Next Trip in 3 Easy Steps</span>
+            <span id="info-subtitle">Easy and Fast</span>
+            <div id="info-bottom">
+                <div id="info-left">
+                    <div class="info-left-single">
+                        <img src="{% static 'Images/info-left-1.png' %}">
+                        <div>
+                            <span class="info-left-title">Choose Destination</span>
+                            <span class="info-left-subtitle">Lorem ipsum dolor sit amet, consectetur<br>
+                                adipiscing elit. Urna, tortor tempus. </span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-left-single">
+                        <img src="{% static 'Images/info-left-2.png' %}">
+                        <div>
+                            <span class="info-left-title">Make Payment</span>
+                            <span class="info-left-subtitle">Lorem ipsum dolor sit amet, consectetur<br>
+                                adipiscing elit. Urna, tortor tempus. </span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-left-single">
+                        <img src="{% static 'Images/info-left-3.png' %}">
+                        <div>
+                            <span class="info-left-title">Reach Airport on Selected Date</span>
+                            <span class="info-left-subtitle">Lorem ipsum dolor sit amet, consectetur<br>
+                                adipiscing elit. Urna, tortor tempus. </span>
+                        </div>
+                    </div>
+                </div>
+                <div id="info-right">
+                    <div id="info-right-under">
+                        <img src="{% static 'Images/info-image.jpg' %}">
+                        <span style="font-size: 18px;font-weight: 550;color: 080809;">Trip To Mustang</span>
+                        <span style="color: #84829A;height: fit-content;">14-29 June| by Raghav Raj Shrestha</span>
+                        <div id="info-circular-icons">
+                            <div>
+                                <img src="{% static 'Images/info-leaf.png' %}">
+                            </div>
+                            <div>
+                                <img src="{% static 'Images/info-book.png' %}">
+                            </div>
+                            <div>
+                                <img src="{% static 'Images/info-send.png' %}">
+                            </div>
+                        </div>
+                        <div id="info-rightbottom-div">
+                            <div>
+                            <img src="{% static 'Images/info-building.png' %}" style="padding-left: 6px;">
+                            <span>24 people going</span>
+                            </div>
+                            <img src="{% static 'Images/info-heart.png' %}" style="padding-right: 8px;">
+                        </div>
+                    </div>
+                    <div id="info-right-over" style="z-index: 100;">
+                        <img src="{% static 'Images/info-overlay.png' %}">
+                        <div id="overlay-bottom">
+                            <span style="color: #84829A;font-size: 14px;">
+                                Ongoing
+                            </span>
+                            <span style="font-size: 15px;font-weight: 650;">
+                                Trip to Home
+                            </span>
+                            <span style="font-size: 12px;padding-top:10px;font-weight: bold;">
+                                <span style="color: #8A79DF;font-weight: 500;">40%&nbsp;</span>Completed
+                            </span>
+                            <div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="info-left-single">
-                    <img src="">
-                    <div>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                
-                <div class="info-left-single">
-                    <img src="">
-                    <div>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-            <div id="info-right">
-                <!-- later  -->
-            </div>
-            <div id="info-right-over">
-                <!--later -->
             </div>
         </section>
         <section id="about">
-            <span>What People Say About Us</span>
+            <span onclick="window.location.href='#about'">What People Say About Us</span>
             <div id="about-back">
 
             </div>

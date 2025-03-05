@@ -5,8 +5,8 @@
 }
 /* For WebKit Browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-    width: 0px;  /* Hide scrollbar */
-    height: 0px; /* Hide horizontal scrollbar */
+    width: 0px;  
+    height: 0px; 
 }
 
 /* For Firefox */
@@ -181,7 +181,7 @@ body{
     -2px -2px 5px rgba(92, 92, 92, 0.15),2px 2px 5px rgba(92, 92, 92, 0.15);
 }
 #mt-ticket>img,#mt-booking>img,#mt-tour>img{
-    width: 12%;
+    width: 10%;
     height: 17%;
     padding-bottom: 7%;
 }
@@ -192,7 +192,7 @@ body{
 }
 .mt-lighter{
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
 }
 /* top */
 
@@ -332,8 +332,8 @@ body{
 .destination-single{
     overflow-x: hidden;
     width: 99.5%;
-    min-height: 192px;
-    max-height: 192px;
+    min-height: 172px;
+    max-height: 172px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -350,6 +350,7 @@ body{
     width: 25px;
     height: 25px;
     padding-right: 10px;
+    cursor: pointer;
 }
 .destination-single>span{
     font-weight: bold;
@@ -364,3 +365,275 @@ body{
     font-size: 15px;
 }
 /* popular */
+/* recommendations */
+
+#recommendations{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ECF1F0;
+}
+
+#rec-title{
+    margin-top: 1%;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 1%;
+}
+
+#filters{
+    width: 90%;
+    height: 13%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#filters>button{
+    width: 9%;
+    height: 44%;
+    background-color: #666666;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+}
+#filters> button.active{
+    background-color: #00A651;
+}    
+
+#discover-contents-closed{
+    margin-top: 2%;
+    display: flex;
+    width: 85%;
+    height: 53%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.discover-content{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 18px 18px 15px 15px;
+    background-color: white;
+}
+
+.discover-content>img{
+    width: 100%;
+    height: 64%;
+    border-radius: 18px 18px 0px 0px;
+}
+.package-info{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+.package-info>span{
+    padding: 0px 10px;
+    font-weight: 500;
+}
+
+.package-desc{
+    font-size: 12px;
+    align-self: flex-start;
+    padding-left:8px ;
+    font-weight: 450;
+    margin-bottom: 11%;
+}
+
+.location-icon{
+    width: 20px;
+    height: 20px;
+}
+
+.discover-content-bottom{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.discover-content-bottom>div{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding-left: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.know-more{
+    padding-right: 8px;
+    font-weight: 600;
+    font-size: 13;
+    align-self: center;
+}
+#discover-more{
+    width: 12%;
+    height: 6.5%;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    background-color: #00A651;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 2.5em;
+}
+
+/* recommendations */
+
+
+/* info */
+#info{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#info-title{
+    margin-top: 3%;
+    font-size: 30px;
+    font-weight: 650;
+    margin-bottom: 1%;
+}
+#info-subtitle{
+    font-weight: 400;
+    margin-bottom: 5%;
+}
+
+#info-bottom{
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    height: 60%;
+    justify-content: space-between;
+    
+}
+#info-left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.info-left-single{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.info-left-single>img{
+    width: 14%;
+    height: 83%;
+    margin-right: 4.5%;
+}
+.info-left-single>div{
+    height: 84%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.info-left-title{
+    font-size: 16px;
+    font-weight: 650;
+}
+.info-left-subtitle{
+    font-size: 14px;
+    font-weight: 450;
+}
+
+#info-right{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+#info-right-under{
+    width: 58%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 26px;
+    height: 90%;
+    padding: 16px;
+    justify-content: space-between;
+    box-shadow: 5px -5px 30px #59B1E6,2px 2px 40px rgba(0, 0, 0, 0.106),
+                -2px -2px 40px rgba(0, 0, 0, 0.106),
+                -2px 2px 40px rgba(0, 0, 0, 0.106);
+}
+#info-right-under>img{
+    width: 100%;
+    height: 48%;
+}
+#info-circular-icons{
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    justify-content: space-between;
+}
+#info-circular-icons>div{
+    background-color: #F5F5F5;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#info-rightbottom-div{
+    height: 9%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#info-rightbottom-div>div{
+    height: 100%;
+    width: 43%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #84829A;
+    font-size: 14px;
+}
+#info-right-over{
+    position: absolute;
+    transform: translate(55%,100%);
+    display: flex;
+    padding: 12px;
+    height: 12%;
+    width: 17%;
+    border-radius: 18px;
+    background-color: white;
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.08) ;
+    gap: 20px;
+}
+#info-right-over>img{
+    border-radius: 100%;
+    width: 20%;
+    height: 60%;
+}
+#overlay-bottom{
+    display: flex;
+    flex-direction: column;
+}
+#overlay-bottom>div{
+    margin-top: 10%;
+    width: 150%;
+    height: 4px;
+    border-radius: 12px;
+    background:linear-gradient(to right,#8A79DF 40% ,rgba(234, 234, 234, 0.562) 40%);
+}
+/* info */
