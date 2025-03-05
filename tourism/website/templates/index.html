@@ -50,97 +50,125 @@
         <section id="mixed">
             <div id="mixed-top">
                 <div id="mt-ticket">
-                    <img src="">
-                    <span class="mt-bolder"></span>
-                    <span class="mt-lighter"></span>
+                    <img src="{% static 'Images/ticket.png' %}">
+                    <span class="mt-bolder">Ticket Booking</span>
+                    <span class="mt-lighter">We book all kind of national ticket for<br>
+                    your destination</span>
                 </div>
                 
                 <div id="mt-booking">
-                    <img src="">
-                    <span class="mt-bolder"></span>
-                    <span class="mt-lighter"></span>
+                    <img src="{% static 'Images/carbon_hotel.png' %}">
+                    <span class="mt-bolder">Hotel Booking</span>
+                    <span class="mt-lighter">You can easily book hotel according to your <br>
+                    budget through our website</span>
                 </div>
                 
-                <div id="mt-toor">
-                    <img src="">
-                    <span class="mt-bolder"></span>
-                    <span class="mt-lighter"></span>
+                <div id="mt-tour">
+                    <img src="{% static 'Images/tour-icon.png' %}">
+                    <span class="mt-bolder">Tour Plan</span>
+                    <span class="mt-lighter">We provide you the best plan within a short<br>
+                    time</span>
                 </div>
             </div>
             <div id="mixed-bottom">
                 <div id="mb-title">
-                    <span style="font-weight: 600;font-size: 30px;">
-                        
+                    <span class="title-for-bolder">
+                        We always try to give you <br>the best service
                     </span>
-                    <span class="">
-
+                    <span id="mb-subtitle">
+                        We always try to make our customers Happy. We provide all kind of <br>
+                        facilities. Your Satisfaction is our main priority.
                     </span>
                 </div>
                 <div id="mb-info">
                     <div>
-                        <img src="">
-                        <span class="mb-info-bolder"></span>
-                        <span class="mb-info-lighter"></span>
+                        <img src="{% static 'Images/mb-calendar.png' %}">
+                        <span class="mb-info-bolder">15+</span>
+                        <span class="mb-info-lighter">Years of<br>Experience</span>
                     </div>
                     <div>
-                        <img src="">
-                        <span class="mb-info-bolder"></span>
-                        <span class="mb-info-lighter"></span>
+                        <img src="{% static 'Images/mb-travelers.png' %}">
+                        <span class="mb-info-bolder">15k+</span>
+                        <span class="mb-info-lighter">Happy<br>Travellers</span>
                     </div>
                     <div>
-                        <img src="">
-                        <span class="mb-info-bolder"></span>
-                        <span class="mb-info-lighter"></span>
+                        <img src="{% static 'Images/mb-map.svg' %}">
+                        <span class="mb-info-bolder">650+</span>
+                        <span class="mb-info-lighter">Places Visited</span>
                     </div>
                     <div>
-                        <img src="">
-                        <span class="mb-info-bolder"></span>
-                        <span class="mb-info-lighter"></span>
+                        <img src="{% static 'Images/mb-history.png' %}">
+                        <span class="mb-info-bolder">2k+</span>
+                        <span class="mb-info-lighter">Travel History</span>
                     </div>
                 </div>
             </div>
         </section>
         <section id="popular">
             <span id="pop-title" >Our Popular Destinations</span>
-            <div map-div>
-                <img src="">
+            <div id='map-div'>
+                <div class="locators" id="pokhara-locator">
+                    <div></div>
+                </div>
+                <div class="locators" id="mustang-locator">
+                    <div></div>
+                </div>
+                <div class="locators" id="rara-locator">
+                    <div></div>
+                </div>
             </div>
             <div id="destinations">
                 <div class="destination-single">
-                    <img src="">
+                    <img src="{% static 'Images/pokhara.png' %}" class="popular-images">
                     <span class="pop-dest-title">
-
+                        Pokhara
                     </span>
-                    <span class="pop-dest-detail">
-
-                    </span>
+                    <div class="pop-dest-detail">
+                        <span>20+ Spots</span>
+                        <span>2D & 3N</span>
+                    </div>
+                    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
                 </div>
 
                 <div class="destination-single">
-                    <img src="">
+                    <img src="{% static 'Images/mustang.png' %}" class="popular-images">
                     <span class="pop-dest-title">
-
+                        Mustang
                     </span>
-                    <span class="pop-dest-detail">
-                        
-                    </span>
+                    <div class="pop-dest-detail">
+                        <span>25+ Spots</span>
+                        <span>3D & 3N</span>
+                    </div>
+                    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
                 </div>
 
                 <div class="destination-single">
-                    <img src="">
+                    <img src="{% static 'Images/rara.png' %}" class="popular-images">
                     <span class="pop-dest-title">
-
+                        Rara
+                    </span>
+                    <div class="pop-dest-detail">
+                        <span>20+ Spots</span>
+                        <span>3D & 2N</span>
+                    </div>
+                    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
+                </div>
+                <div class="destination-single">
+                    <img src="{% static 'Images/pokhara' %}" class="popular-images">
+                    <span class="pop-dest-title">
+                        Pokhara
                     </span>
                     <span class="pop-dest-detail">
-                        
+
                     </span>
+                    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
                 </div>
             </div>
         </section>
         <section id="recommendations">
             <span id="rec-title">Best Packages For You</span>
             <div id="filters">
-                <button >1</button>
+                <button onclick="">1</button>
                 <button >1</button>
                 <button >1</button>
                 <button >1</button>
