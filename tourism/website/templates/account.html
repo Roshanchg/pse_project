@@ -1,0 +1,86 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Your Account</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/account.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+            rel="stylesheet">
+    </head>
+    <body>
+        <div id="back-div">
+            <img src="{% static 'Images/arrow-back.svg' %}" id="home" style="cursor: pointer;">
+        </div>
+
+        <section>
+            <div id="top">
+                <div id="top-left">
+                    <img src="{% static 'Images/test.png' %}" id="profile-image">
+                    <div id="profile-info">
+                        <span id="profile-name">
+                            Jugal Sir
+                        </span>
+                        <span id="profile-email">
+                            abc@example.com
+                        </span>
+                    </div>
+                </div>
+                <div id="top-right">
+                    <button class="profile-buttons" id="edit-button">
+                        Edit
+                    </button>
+                    <button class="profile-buttons" id="logout-button">
+                        Logout
+                    </button>
+                    
+                </div>
+            </div>
+            <div id="middle">
+                <div id="middle-left">
+                    <div>
+                        <span>Full Name</span>
+                        <input type="text" value="Jugal Sir" disabled>
+                    </div>
+                    <div>
+                        <span>Gender</span>
+                        <input type="text" value="Not Chosen" disabled>
+                    </div>
+                    <div>
+                        <span>Language</span>
+                        <input type="text" value="English" disabled>
+                    </div>
+                </div>
+                <div id="middle-right">
+                    <div>
+                        <span>NicK Name</span>
+                        <input type="text" value="Jugal Sir" disabled>
+                    </div>
+                    <div>
+                        <span>Country</span>
+                        <input type="text" value="Nepal" disabled>
+                    </div>
+                    <div>
+                        <span>Time Zone</span>
+                        <input type="text" value="Asia / Kathmandu" disabled>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom">
+                <span>My email Address</span>
+                <div>
+                    <img src="{% static 'Images/account-mail.png' %}">
+                    <div id="bottom-email">
+                        <span style="font-weight: 600;">alexrawles@gmail.com</span>
+                        <span style="font-size: 14px;">1 month ago</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="" async defer></script>
+    </body>
+</html>
