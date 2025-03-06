@@ -6,15 +6,55 @@
 
 #img-div{
     position: absolute;
-    width:52%;
+    width:54%;
     height: 100%;
     right:0%;
-    background-image: url("../Images/login-background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top left;
     border-radius: 45px 0px 0px 45px;
-    box-shadow: -1px 0px 5px rgb(126, 126, 126);
+}
+
+#login-img-1{
+    border-radius: 196px;
+    position: absolute;
+    width: 60%;
+    height: 30%;
+    left: 4%;
+    top: 2%;
+}
+
+#login-img-2{
+    border-radius: 260px 0px 0px 260px;
+    width: 40%;
+    height: 30%;
+    position: absolute;
+    top:22%;
+    right: 0%;
+}
+
+#login-img-3{
+    border-radius: 231px;
+    position: absolute;
+    top: 35%;
+    width: 40%;
+    height: 26%;
+    right: 47%;
+}
+
+#login-img-5{
+    border-radius: 300px;
+    position: absolute;
+    bottom:3%;
+    width: 50%;
+    height: 32%;
+    z-index: 100;
+}
+
+#login-img-4{
+    position: absolute;
+    border-radius: 179px;
+    width: 45%;
+    height: 32%;
+    bottom: 12%;
+    right: 2%;
 }
 #login-div{
     display: flex;
@@ -83,7 +123,7 @@
 }
 #submit-button{
     margin-top: 4%;
-    background-color: #3A5B22;
+    background-color: #00A651;
     border: 0;
     color: white;
     height: 36px;

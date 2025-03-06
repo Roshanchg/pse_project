@@ -15,6 +15,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+            rel="stylesheet">
     </head>
     <body>
         <section id="home">
@@ -25,18 +29,18 @@
                         <span id="webname" style="line-height: 1;">&nbsp;Eco<br>Yatra</span>
                     </div>
                     <div id="nav-middle">
-                        <a id="home-ref" href="#">Home</a>
-                        <a id="about-ref" href="#">About Us</a>
-                        <a id="packages-ref" href="#">Packages</a>
+                        <a id="home-ref" href="#home">Home</a>
+                        <a id="about-ref" href="#about">About Us</a>
+                        <a id="packages-ref" href="#recommendations">Packages</a>
                     </div>
                     <div id="nav-right">
-                        <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960"  fill="#FF7A00">
+                        <svg style='cursor:pointer;' xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960"  fill="#FF7A00">
                             <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
                         </svg>
                         {% if True %}
-                            <img src="{% static 'Images/account.svg' %}">
+                            <img src="{% static 'Images/account.svg' %}" style='cursor:pointer;'>
                         {% else %}
-                            <img src="{% static 'Images/eye_open.svg %'}">
+                            <img src="{% static 'Images/eye_open.svg %'}" style='cursor:pointer;'>
                         {% endif %} 
                     </div>
                 </div>
@@ -177,52 +181,50 @@
             </div>
             <div id="discover-contents-closed">
                 <div class="discover-content">
-                    <img src="{% static 'Images/pokhara.png' %}">
+                    <img src="{% static 'Images/lumbini.png' %}">
                     <div class="package-info">
                         <span class="package-time">3 Days, 2 Nights</span>
                         <span class="package-rate">NRP 999 / Person</span>
                     </div>
-                    <span class="package-desc">Explore the Beauty of the island for 3 days
-                        <br>
-                        and 2 nights with our travel agency</span>
+                    <span class="package-desc">Explore the Beauty of the birth place of lord Buddha
+                        for 3 days and 2 nights with our travel agency</span>
                     <div class="discover-content-bottom">
                         <div>
                         <img src="{% static 'Images/location.svg' %}" class="location-icon">
-                        <span class="package-location">Pokhara</span>
+                        <span class="package-location">Lumbini</span>
                         </div>
                         <span class="know-more">Know More</span>
                     </div>
                 </div>
 
                 <div class="discover-content">
-                    <img src="{% static 'Images/mustang.png' %}">
+                    <img src="{% static 'Images/nagarkot.png' %}">
                     <div class="package-info">
                         <span class="package-time">3 Days, 2 Nights</span>
                         <span class="package-rate">NRP 999 / Person</span>
                     </div>
-                    <span class="package-desc">Enjoy the Shrimes and blossoms here in 
-                        <br>
+                    <span class="package-desc">Enjoy the mystical views and top hills  in 
                         this beautiful country</span>
                     <div class="discover-content-bottom">
                         <div >
                         <img src="{% static 'Images/location.svg' %}" class="location-icon">
-                        <span class="package-location">Mustang</span></div>
+                        <span class="package-location">Nagarkot</span></div>
                         <span class="know-more">Know More</span>
                     </div>
                 </div>
 
                 <div class="discover-content">
-                    <img src="{% static 'Images/rara.png' %}">
+                    <img src="{% static 'Images/everest.png' %}">
                     <div class="package-info">
                         <span class="package-time">3 Days, 2 Nights</span>
                         <span class="package-rate">NRP 999 / Person</span>
                     </div>
-                    <span class="package-desc">Explore the majestic mountains and <br>
+                    <span class="package-desc">Explore the majestic mountains and 
                         landscapes day and nights</span>
                     <div class="discover-content-bottom">
                         <div >
                         <img src="{% static 'Images/location.svg' %}" class="location-icon">
-                        <span class="package-location">Rara</span></div>
+                        <span class="package-location">Everest Base camp</span></div>
                         <span class="know-more">Know More</span>
                     </div>
                 </div>
@@ -238,8 +240,8 @@
                         <img src="{% static 'Images/info-left-1.png' %}">
                         <div>
                             <span class="info-left-title">Choose Destination</span>
-                            <span class="info-left-subtitle">Lorem ipsum dolor sit amet, consectetur<br>
-                                adipiscing elit. Urna, tortor tempus. </span>
+                            <span class="info-left-subtitle">Have a best choice in destination, package and 
+                                <br>entertainment. </span>
                         </div>
                     </div>
                     
@@ -247,8 +249,8 @@
                         <img src="{% static 'Images/info-left-2.png' %}">
                         <div>
                             <span class="info-left-title">Make Payment</span>
-                            <span class="info-left-subtitle">Lorem ipsum dolor sit amet, consectetur<br>
-                                adipiscing elit. Urna, tortor tempus. </span>
+                            <span class="info-left-subtitle">Easy medium of payment, use online medium.
+                                <br>&nbsp; </span>
                         </div>
                     </div>
                     
@@ -256,15 +258,16 @@
                         <img src="{% static 'Images/info-left-3.png' %}">
                         <div>
                             <span class="info-left-title">Reach Airport on Selected Date</span>
-                            <span class="info-left-subtitle">Lorem ipsum dolor sit amet, consectetur<br>
-                                adipiscing elit. Urna, tortor tempus. </span>
+                            <span class="info-left-subtitle">Have a best travelling experience and reach to <br>
+                                destination in time.
+                                 </span>
                         </div>
                     </div>
                 </div>
                 <div id="info-right">
                     <div id="info-right-under">
                         <img src="{% static 'Images/info-image.jpg' %}">
-                        <span style="font-size: 18px;font-weight: 550;color: 080809;">Trip To Mustang</span>
+                        <span style="font-size: 18px;font-weight: 550;color: 080809;">Trip To Ilam</span>
                         <span style="color: #84829A;height: fit-content;">14-29 June| by Raghav Raj Shrestha</span>
                         <div id="info-circular-icons">
                             <div>
@@ -292,7 +295,7 @@
                                 Ongoing
                             </span>
                             <span style="font-size: 15px;font-weight: 650;">
-                                Trip to Home
+                                Trip to Chitwan
                             </span>
                             <span style="font-size: 12px;padding-top:10px;font-weight: bold;">
                                 <span style="color: #8A79DF;font-weight: 500;">40%&nbsp;</span>Completed
@@ -309,57 +312,76 @@
         <section id="about">
             <span onclick="window.location.href='#about'">What People Say About Us</span>
             <div id="about-back">
-
+                <img src="{% static 'Images/about-img.jpg' %}">
             </div>
             <div id="about-info">
-                <img src="">
-                <span></span>
-                <span>-Noboy</span>
+                <img src="{% static 'Images/test.png' %}">
+                <span style="font-size: 18px;">"Seamless booking, great recommendations, and <br> excellent support perfect for Nepal travel!"</span>
+                <span style="font-size: 20px;font-weight: 650;">-Hamro Jugal Sir</span>
             </div>
         </section>
         <section id="contacts">
+            <div id="contacts-overlay">
+                <img src="{% static 'Images/contacts-send-icon.png' %}" >
+            </div>
             <div id="contact-top">
-                <span>Subscribe to get information, latest news and other<br>
-                interesting offers about us</span>
-                <img src="" id="contacts-overlay">
+                <span onclick="window.location.href='#contacts'">Subscribe to get information, latest news and other
+                    <span>
+                    interesting offers about us
+                    </span>
+                </span>
+                
                 <div id="contact-input">
-                    <img src="">
+                    <img src="{% static 'Images/contacts-mail-icon.svg' %}">
                     <form name="contacts-form" id="contacts-form">
                     <input type="email" placeholder="Your email" name="contactemail">
                     <button type="submit" >Subscribe</button>
                     </form>
                 </div>
+                <img src="{% static 'Images/contacts-shadow.png' %}">
             </div>
             <div id="contacts-bottom">
                 <div id="sub-left">
-                    <span></span><br>
-                    <span></span>
+                    <span style="display: flex;flex-direction: column;
+                    align-items: center;font-weight: 700;font-size: 24px;
+                    font-family: 'Laila'; line-height: 0.9;
+                    cursor: pointer;" onclick="window.location.href='#home'">
+                    Eco<span>Yatra</span></span>
+                    <span style="color: #5E6282;font-size: 14px;">
+                        Book your trip in minute, get full<br>
+                        Control for much longer.
+                        </span>
                 </div>
                 <div id="sub-middle">
                     <div id="middle-left">
-                        <span>Company</span>
-                        <span>About</span>
-                        <span>Careers</span>
-                        <span>Mobile</span>
+                        <span class="contacts-bolder">Company</span>
+                        <span class="contacts-lighter">About</span>
+                        <span class="contacts-lighter">Careers</span>
+                        <span class="contacts-lighter">Mobile</span>
 
                     </div>
                     <div id="middle-mid">
-                        <span>Contact</span>
-                        <span>HelpFAQ</span>
-                        <span>Press</span>
-                        <span>Affiliates</span>
+                        <span class="contacts-bolder">Contact</span>
+                        <span class="contacts-lighter">HelpFAQ</span>
+                        <span class="contacts-lighter">Press</span>
+                        <span class="contacts-lighter">Affiliates</span>
                     </div>
                     <div id="middle-right">
-                        <span>More</span>
-                        <span>Attributes</span>
-                        <span>Airline</span>
-                        <span>Low fare tips</span>
+                        <span class="contacts-bolder">More</span>
+                        <span class="contacts-lighter">Attributes</span>
+                        <span class="contacts-lighter">Airline</span>
+                        <span class="contacts-lighter">Low fare tips</span>
                     </div>
                 </div>
                 <div id="sub-right">
-                    <img src="">
-                    <img src="">
-                    <img src="">
+                    <div id="facebook-logo">f</div>
+                    <div id="instagram-logo">
+                        <div >
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <span id="cc">All rights reserved@raghav.don</span>
