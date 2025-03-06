@@ -40,7 +40,10 @@ section{
 }
 #profile-image{
     width: 16%;
+    max-width: 16%;
+
     height: 90%;
+    max-height: 90%;
     background-color: #f9f9f9f9;
     border-radius: 100%;
 }
@@ -81,6 +84,9 @@ section{
 
 }
 #logout-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #A60000;
 }
 #edit-button:hover{

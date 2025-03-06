@@ -128,9 +128,10 @@
     background-color: #00A651;
     border: 0;
     color: white;
-    height: 34px;
+    height: 36px;
     width: 100%;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 #remeber{
     position: relative;

@@ -18,12 +18,18 @@
             rel="stylesheet">
     </head>
     <body>
+        {% if alert %}
+        <script type="text/javascript"> 
+            alert("{{alert}}")
+        </script>
+        {% endif %}
         <div id="login-div">
             <div id="title-div">
                 <span id="title-head">Welcome back!</span>
                 <span id="title-sub">Enter your Credentials to access your account</span>
             </div>
-            <form name="mainform" id="main-form">
+            <form name="mainform" id="main-form" method="POST">
+                {% csrf_token %}
                 <label for="email">Email address</label><br>
                 <input type="email" name="email" id="email" class="input-field" placeholder="abc@example.com" ><br>
                 <label for="password">Password</label> <br>
@@ -32,11 +38,11 @@
                     <img src="{% static 'Images/eye_open.svg' %}" id="show-pass" onclick="togglePasswordVisibility()">
                 </div>
                     <a href="#LOL" id="forgot">Forgot Password</a><br>
-                <input type="checkbox" name="remeber" value="false" id="remeber">
+                <input type="checkbox" name="remember" id="remeber" >
                 <span id="rem-label">Remember for 30 days?</span><br>
                 <button type="submit" id="submit-button">Login</button>
             </form>
-            <span id="another-form">Don't have an account?&nbsp;<a href="#LOL">Sign Up</a></span>
+            <span id="another-form">Don't have an account?&nbsp;<a href="{% url 'website:register' %}">Sign Up</a></span>
         </div>
         <script src="{% static 'javascript/loginform.js' %}"></script>
         <div id="img-div">

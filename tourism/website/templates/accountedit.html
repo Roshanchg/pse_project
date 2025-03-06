@@ -14,19 +14,24 @@
     </head>
     <body>
         <div id="back-div">
-            <img src="{% static 'Images/arrow-back.svg' %}" id="home" style="cursor: pointer;">
+            <img src="{% static 'Images/arrow-back.svg' %}" id="home" style="cursor: pointer;" data-url="{% url 'website:index' %}">
         </div>
-
-        <form name="edit-profile-form" method="post" action="">
+        <script type="text/javascript">
+            document.getElementById("home").addEventListener("click", function() {
+                    window.location.href = this.getAttribute("data-url");
+                });
+        </script>
+        <form name="edit-profile-form" method="post" id="profile-edit">
+            {% csrf_token %}
             <div id="top">
                 <div id="top-left">
-                    <img src="{% static 'Images/test.png' %}" id="profile-image">
+                    <img src="{% static 'Images/profiles/'%}{{ profile }} " id="profile-image">
                     <div id="profile-info">
                         <span id="profile-name">
-                            Jugal Sir
+                            {{ name }}
                         </span>
                         <span id="profile-email">
-                            abc@example.com
+                            {{ email }}
                         </span>
                     </div>
                 </div>
@@ -34,9 +39,9 @@
                     <button class="profile-buttons" id="save-button" type="submit">
                         Save
                     </button>
-                    <button class="profile-buttons" id="discard-button">
+                    <a class="profile-buttons" id="discard-button" data-url="{% url 'website:account' %}">
                         Discard
-                    </button>
+                    </a>
                     
                 </div>
             </div>
@@ -44,15 +49,15 @@
                 <div id="middle-left">
                     <div>
                         <span>Full Name</span>
-                        <input type="text" value="Jugal Sir">
+                        <input type="text" value="{{ name }}">
                     </div>
                     <div>
                         <span>Gender</span>
                         <div class="select-wrapper">
-                            <select id="gender-view" name="gender">
-                                <option value="" selected disabled>Choose A Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                            <select id="gender-view" name="gender" value="{{ gender }}">
+                                <option value="" {% if not gender %}selected {% endif %} disabled>Choose A Gender</option>
+                                <option value="male" {% if gender == "male" %} selected {% endif %}>Male</option>
+                                <option value="female" {% if gender == "female" %}selected{% endif %}>Female</option>
                             </select>
                         </div>
                     </div>
@@ -65,15 +70,15 @@
                 <div id="middle-right">
                     <div>
                         <span>NicK Name</span>
-                        <input type="text" value="Jugal Sir" >
+                        <input type="text" value="{{ nickname }}" >
                     </div>
                     <div>
                         <span>Country</span>
                         <div class="select-wrapper">
-                            <select id="country-view" name="country">
-                                <option value="" selected disabled>Choose A Country</option>
-                                <option value="nepal">Nepal</option>
-                                <option value="other">Other</option>
+                            <select id="country-view" name="country" value="{{ country }}">
+                                <option value="" {% if not country %}selected{% endif %} disabled>Choose A Country</option>
+                                <option value="nepal" {% if country == 'Nepal' %} selected {% endif %}>Nepal</option>
+                                <option value="other" {% if country != 'Nepal' %} selected {% endif %}>Other</option>
                             </select>
                         </div>
                     </div>
@@ -85,9 +90,9 @@
             </div>
             <div id="email-div">
                 <span>E-mail Address</span>
-                <input type="text" value="abc@example.com" >
+                <input type="text" value="{{ email }}" >
             </div>
         </form>
-        <script src="" async defer></script>
+        <script type="text/javascript" src="{% static 'javascript/accountedit.js' %}"></script>
     </body>
 </html>

@@ -34,13 +34,17 @@
                         <a id="packages-ref" href="#recommendations">Packages</a>
                     </div>
                     <div id="nav-right">
-                        <svg style='cursor:pointer;' xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960"  fill="#FF7A00">
+                        <svg style='cursor:pointer;' xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960"  fill="#FF7A00" onclick="window.location.href='#popular'">
                             <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
                         </svg>
-                        {% if True %}
-                            <img src="{% static 'Images/account.svg' %}" style='cursor:pointer;'>
+                        {% if uid %}
+                        <script type="text/javascript">
+                            alert(uid)
+                        </script>
+                            <img id="goto-login" style="width:48%;height: 45%;max-width: 48%;max-height: 45%;cursor: pointer;" src="{% static 'Images/profiles/default.png' %}"  data-url="{% url 'website:account' %}"
+                            >
                         {% else %}
-                            <img src="{% static 'Images/eye_open.svg %'}" style='cursor:pointer;'>
+                            <img id="goto-login" style='cursor:pointer;' src="{% static 'Images/account.svg' %}"   data-url="{% url 'website:login' %}">
                         {% endif %} 
                     </div>
                 </div>
@@ -48,7 +52,7 @@
                 <div id="title-sub-div">
                     <span>Your satisfaction is our main priority</span>
                 </div>
-                <button id="title-button">Discover more</button>
+                <button id="title-button" onclick="window.location.href='#recommendations'">Discover more</button>
             </div>
         </section>
         <section id="mixed">
@@ -387,6 +391,6 @@
             <span id="cc">All rights reserved@raghav.don</span>
         </section>
 
-        <script src="{% static 'javascript/index.js' %}" async defer></script>
+        <script src="{% static 'javascript/index.js' %}" ></script>
     </body>
 </html>

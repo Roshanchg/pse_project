@@ -14,29 +14,35 @@
     </head>
     <body>
         <div id="back-div">
-            <img src="{% static 'Images/arrow-back.svg' %}" id="home" style="cursor: pointer;">
+            <img src="{% static 'Images/arrow-back.svg' %}" id="home" style="cursor: pointer;" data-url="{% url 'website:index' %}">
         </div>
-
+        <script type="text/javascript">
+            document.getElementById("home").addEventListener("click", function() {
+                    window.location.href = this.getAttribute("data-url");
+                });
+        </script>
         <section>
             <div id="top">
                 <div id="top-left">
-                    <img src="{% static 'Images/test.png' %}" id="profile-image">
+                    <img src="{% static 'Images/profiles/' %}{{ profile }}" id="profile-image">
                     <div id="profile-info">
                         <span id="profile-name">
-                            Jugal Sir
+                            {{ name }}
                         </span>
                         <span id="profile-email">
-                            abc@example.com
+                            {{ email }}
                         </span>
                     </div>
                 </div>
                 <div id="top-right">
                     <button class="profile-buttons" id="edit-button">
-                        Edit
+                        <a href="{% url 'website:accountedit' %}" style="text-decoration: none;color: white;">
+                            Edit
+                        </a>
                     </button>
-                    <button class="profile-buttons" id="logout-button">
+                    <a class="profile-buttons" id="logout-button" style="text-decoration: none;color: white;" href="{% url 'website:logout' %}">
                         Logout
-                    </button>
+                    </a>
                     
                 </div>
             </div>
@@ -44,11 +50,11 @@
                 <div id="middle-left">
                     <div>
                         <span>Full Name</span>
-                        <input type="text" value="Jugal Sir" disabled>
+                        <input type="text" value="{{ name }}" disabled>
                     </div>
                     <div>
                         <span>Gender</span>
-                        <input type="text" value="Not Chosen" disabled>
+                        <input type="text" value="{{ gender }}" disabled>
                     </div>
                     <div>
                         <span>Language</span>
@@ -57,12 +63,12 @@
                 </div>
                 <div id="middle-right">
                     <div>
-                        <span>NicK Name</span>
-                        <input type="text" value="Jugal Sir" disabled>
+                        <span>Nick Name</span>
+                        <input type="text" value="{{ nickname }} " placeholder="NickName" disabled>
                     </div>
                     <div>
                         <span>Country</span>
-                        <input type="text" value="Nepal" disabled>
+                        <input type="text" value="{{ country }}" disabled>
                     </div>
                     <div>
                         <span>Time Zone</span>
@@ -75,12 +81,11 @@
                 <div>
                     <img src="{% static 'Images/account-mail.png' %}">
                     <div id="bottom-email">
-                        <span style="font-weight: 600;">alexrawles@gmail.com</span>
-                        <span style="font-size: 14px;">1 month ago</span>
+                        <span style="font-weight: 600;">{{ email }}</span>
+                        <span style="font-size: 14px;">{{ doj }}</span>
                     </div>
                 </div>
             </div>
         </section>
-        <script src="" async defer></script>
     </body>
 </html>

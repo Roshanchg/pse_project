@@ -25,3 +25,7 @@ function setHotButtonActive() {
 document.addEventListener("DOMContentLoaded", function () {
     setHotButtonActive();
 });
+
+document.getElementById("goto-login").addEventListener("click", function() {
+    window.location.href = this.getAttribute("data-url");
+});

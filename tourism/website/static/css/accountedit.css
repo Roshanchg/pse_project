@@ -41,6 +41,8 @@ form{
 #profile-image{
     width: 16%;
     height: 90%;
+    max-width: 16%;
+    max-height: 90%;
     background-color: #f9f9f9f9;
     border-radius: 100%;
 }
@@ -81,7 +83,12 @@ form{
 
 }
 #discard-button{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #A60000;
+    cursor: pointer;
 }
 #save-button:hover{
     background-color: #046e37;
