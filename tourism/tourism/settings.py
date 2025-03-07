@@ -114,4 +114,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = ['*']  # Allows all hosts (not recommended for production)
-CSRF_TRUSTED_ORIGINS = ['https://*.serveo.net','http://localhost',"http://0.0.0.0"]
+CSRF_TRUSTED_ORIGINS = ['https://*.serveo.net','http://localhost',"http://0.0.0.0",
+                        "https://*.ngrok-free.app",
+                        "https://*.loca.lt"]
