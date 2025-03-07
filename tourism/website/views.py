@@ -49,14 +49,25 @@ def regform(request):
 
 def account(request):
     details=get_user_details(request=request)
-    print(details)
     if not details:
         return redirect(to="website:login")
     return render(request=request,template_name="account.html",context=details)
 
 def accountedit(request):
     details=get_user_details(request=request)
-    print(details)
+    if request.method=="POST":
+        uid=details['uid']
+        name=request.POST['edit-name']
+        email=request.POST['edit-email']
+        try :
+            gender=request.POST['edit-gender']
+        except:    
+            gender=None    
+        country=request.POST['edit-country']        
+        nickname=request.POST['edit-nickname']        
+        edit_user_details(id=uid,name=name,email=email,gender=gender,nickname=nickname,country=country)
+        details=get_user_details(request=request)
+        return render(request=request,template_name="accountedit.html",context=details)
     if not details:
         return redirect(to="website:login")
     return render(request=request,template_name="accountedit.html",context=details)
@@ -79,8 +90,14 @@ def add_new_user(name,email,password):
     except Exception as e:
         print(e,"\n")
         return False
-    
-
+def edit_user_details(id,name,email,gender,nickname,country):
+    user=Users.objects.filter(id=id).first()
+    user.email=email
+    user.gender=gender
+    user.nickname= nickname if nickname!='' or not nickname else "None"
+    user.country=country
+    user.name=name
+    user.save()
 def authenticate(email,password):
     try:
         user=Users.objects.all().get(email=email)
@@ -113,7 +130,7 @@ def get_user_details(request):
     try:
         uid=request.session.get('uid')
         user=Users.objects.filter(id=uid).first()
-        email=request.session.get('email')
+        email=user.email
         name=user.name
         nickname=user.nickname
         country=user.country

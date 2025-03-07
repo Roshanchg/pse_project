@@ -49,13 +49,13 @@
                 <div id="middle-left">
                     <div>
                         <span>Full Name</span>
-                        <input type="text" value="{{ name }}">
+                        <input type="text" value="{{ name }}" name="edit-name" required>
                     </div>
                     <div>
                         <span>Gender</span>
                         <div class="select-wrapper">
-                            <select id="gender-view" name="gender" value="{{ gender }}">
-                                <option value="" {% if not gender %}selected {% endif %} disabled>Choose A Gender</option>
+                            <select id="gender-view" name="edit-gender" value="{{ gender }}">
+                                <option value="None" {% if not gender %}selected {% endif %} disabled>Choose A Gender</option>
                                 <option value="male" {% if gender == "male" %} selected {% endif %}>Male</option>
                                 <option value="female" {% if gender == "female" %}selected{% endif %}>Female</option>
                             </select>
@@ -70,15 +70,15 @@
                 <div id="middle-right">
                     <div>
                         <span>NicK Name</span>
-                        <input type="text" value="{{ nickname }}" >
+                        <input type="text" value="{{ nickname }}" name="edit-nickname">
                     </div>
                     <div>
                         <span>Country</span>
                         <div class="select-wrapper">
-                            <select id="country-view" name="country" value="{{ country }}">
-                                <option value="" {% if not country %}selected{% endif %} disabled>Choose A Country</option>
-                                <option value="nepal" {% if country == 'Nepal' %} selected {% endif %}>Nepal</option>
-                                <option value="other" {% if country != 'Nepal' %} selected {% endif %}>Other</option>
+                            <select id="country-view" name="edit-country" value="{{ country }}">
+                                <option value="None" {% if not country %}selected{% endif %} disabled>Choose A Country</option>
+                                <option value="Nepal" {% if country == 'Nepal'  %} selected {% endif %}>Nepal</option>
+                                <option value="Other" {% if country != 'Nepal' %} selected {% endif %}>Other</option>
                             </select>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
             </div>
             <div id="email-div">
                 <span>E-mail Address</span>
-                <input type="text" value="{{ email }}" >
+                <input type="email" value="{{ email }}" name="edit-email" required>
             </div>
         </form>
         <script type="text/javascript" src="{% static 'javascript/accountedit.js' %}"></script>
