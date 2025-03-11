@@ -1,0 +1,18 @@
+{% load static %}
+{% for package in top_packages %}
+<div class="discover-content">
+    <img src="{% static 'Images/'%}{{ package.destination.image }}">
+    <div class="package-info">
+        <span class="package-time">{{ package.time }}</span>
+        <span class="package-rate">NRP&nbsp;{{ package.price }} / person</span>
+    </div>
+    <span class="package-desc">{{ package.desc }}</span>
+    <div class="discover-content-bottom">
+        <div>
+            <img src="{% static 'Images/location.svg' %}" class="location-icon">
+            <span class="package-location">{{ package.destination.name }}</span>
+        </div>
+        <span class="book-now">Book Now</span>
+    </div>
+</div> 
+{% endfor %}

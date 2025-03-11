@@ -14,9 +14,6 @@ SECRET_KEY = 'django-insecure-!=q&x1hqyyant47h5=lsf(3qj(xf6#y$+h7mpko1jw-out+h-0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -107,7 +104,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 # Directory where static files will be collected during deployment (e.g., using `collectstatic` command)
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -116,4 +113,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = ['*']  # Allows all hosts (not recommended for production)
 CSRF_TRUSTED_ORIGINS = ['https://*.serveo.net','http://localhost',"http://0.0.0.0",
                         "https://*.ngrok-free.app",
-                        "https://*.loca.lt"]
+                        "https://*.loca.lt","http://localhost","http://127.0.0.1"]

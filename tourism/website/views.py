@@ -1,11 +1,23 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from website.models import Users
+from website.models import Users,Destinations,Packages,Bookings
 from django.contrib.sessions.models import Session
+from django.http import Http404
 # Create your views here.
-def index(request):
-    context=get_session_context(request=request)
+def index(request):  
+    context={'session':get_session_context(request=request),
+             'top_packages':get_top_packages(request=request,Type=None,all_packages=False),
+             'all_packages':None}  
+    print(context)
     return render(request=request,template_name="index.html",context=context)
+
+def update_section(request):
+    all_packages=request.GET.get('all',False)
+    mytype=request.GET.get("type",None)  
+    context={'session':get_session_context(request=request),
+             'top_packages':get_top_packages(request=request,Type=mytype,all_packages=all_packages),
+        }
+    return render(request, "package_section.html", context=context)
 
 def loginform(request):
     if request.method=="POST":
@@ -157,3 +169,15 @@ def clear_session(request):
         except Session.DoesNotExist:
             pass  
     request.session.flush()  
+
+
+def get_top_packages(request,Type=None,all_packages=False):
+    if not Type:
+        all_data = Packages.objects.select_related('destination').order_by('bookingcount')
+    else:
+        all_data = Packages.objects.select_related('destination').filter(ptype__icontains=Type).order_by('bookingcount')
+    if all_packages==True:
+        return all_data
+    else:
+        return all_data[:3]
+    

@@ -472,12 +472,15 @@ body{
     font-weight: 600;
 }
 
-.know-more{
+.book-now{
     padding-right: 8px;
     font-weight: 600;
     font-size: 13;
     align-self: center;
     cursor: pointer;
+}
+.book-now:hover{
+    text-decoration: underline;
 }
 #discover-more{
     width: 12%;

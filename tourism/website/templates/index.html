@@ -19,6 +19,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
             rel="stylesheet">
+
+        <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+
     </head>
     <body>
         <section id="home">
@@ -37,7 +40,7 @@
                         <svg style='cursor:pointer;' xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960"  fill="#FF7A00" onclick="window.location.href='#popular'">
                             <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>
                         </svg>
-                        {% if uid %}
+                        {% if session.uid %}
                             <img id="goto-login" style="width:48%;height: 45%;max-width: 48%;max-height: 45%;cursor: pointer;" src="{% static 'Images/profiles/default.png' %}"  data-url="{% url 'website:account' %}"
                             >
                         {% else %}
@@ -164,7 +167,8 @@
                         Pokhara
                     </span>
                     <span class="pop-dest-detail">
-
+                        <span>20+ Spots</span>
+                        <span>3D & 2N</span>
                     </span>
                     <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
                 </div>
@@ -173,62 +177,15 @@
         <section id="recommendations">
             <span id="rec-title" onclick="window.location.href='#recommendations'">Best Packages For You</span>
             <div id="filters">
-                <button onclick="" id="hot-button" class="filter-buttons" >Hot Deals</button>
-                <button id="backpack-button" class="filter-buttons">Backpack</button>
-                <button id="honeymoon-button" class="filter-buttons">Honeymoon</button>
-                <button id="rafting-button" class="filter-buttons">Rafting</button>
-                <button id="himalayan-button" class="filter-buttons">Himalayan</button>
-                <button id="more-button" class="filter-buttons">More</button>
+                <button id="hot-button" class="filter-buttons" hx-get="{% url 'website:update_content' %}" hx-target="#discover-contents-closed" hx-swap="innerHTML">Hot Deals</button>
+                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?type=backpack" hx-target="#discover-contents-closed" hx-swap="innerHTML">Backpack</button>
+                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?type=honeymoon" hx-target="#discover-contents-closed" hx-swap="innerHTML">Honeymoon</button>
+                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?type=rafting" hx-target="#discover-contents-closed" hx-swap="innerHTML">Rafting</button>
+                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?type=himalayan" hx-target="#discover-contents-closed" hx-swap="innerHTML">Himalayan</button>
+                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?" hx-target="#discover-contents-closed" hx-swap="innerHTML">More</button>
             </div>
             <div id="discover-contents-closed">
-                <div class="discover-content">
-                    <img src="{% static 'Images/lumbini.png' %}">
-                    <div class="package-info">
-                        <span class="package-time">3 Days, 2 Nights</span>
-                        <span class="package-rate">NRP 999 / Person</span>
-                    </div>
-                    <span class="package-desc">Explore the Beauty of the birth place of lord Buddha
-                        for 3 days and 2 nights with our travel agency</span>
-                    <div class="discover-content-bottom">
-                        <div>
-                        <img src="{% static 'Images/location.svg' %}" class="location-icon">
-                        <span class="package-location">Lumbini</span>
-                        </div>
-                        <span class="know-more">Know More</span>
-                    </div>
-                </div>
-
-                <div class="discover-content">
-                    <img src="{% static 'Images/nagarkot.png' %}">
-                    <div class="package-info">
-                        <span class="package-time">3 Days, 2 Nights</span>
-                        <span class="package-rate">NRP 999 / Person</span>
-                    </div>
-                    <span class="package-desc">Enjoy the mystical views and top hills  in 
-                        this beautiful country</span>
-                    <div class="discover-content-bottom">
-                        <div >
-                        <img src="{% static 'Images/location.svg' %}" class="location-icon">
-                        <span class="package-location">Nagarkot</span></div>
-                        <span class="know-more">Know More</span>
-                    </div>
-                </div>
-
-                <div class="discover-content">
-                    <img src="{% static 'Images/everest.png' %}">
-                    <div class="package-info">
-                        <span class="package-time">3 Days, 2 Nights</span>
-                        <span class="package-rate">NRP 999 / Person</span>
-                    </div>
-                    <span class="package-desc">Explore the majestic mountains and 
-                        landscapes day and nights</span>
-                    <div class="discover-content-bottom">
-                        <div >
-                        <img src="{% static 'Images/location.svg' %}" class="location-icon">
-                        <span class="package-location">Everest Base camp</span></div>
-                        <span class="know-more">Know More</span>
-                    </div>
-                </div>
+                {% include 'package_section.html' %}
             </div>
             <button id="discover-more">Discover More</button>
         </section>
@@ -389,5 +346,6 @@
         </section>
 
         <script src="{% static 'javascript/index.js' %}" ></script>
+
     </body>
 </html>
