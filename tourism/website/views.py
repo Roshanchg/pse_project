@@ -3,11 +3,12 @@ from django.shortcuts import redirect
 from website.models import Users,Destinations,Packages,Bookings
 from django.contrib.sessions.models import Session
 from django.http import Http404
+import datetime
 # Create your views here.
 def index(request):  
     context={'session':get_session_context(request=request),
              'top_packages':get_top_packages(request=request,Type=None,all_packages=False),
-             'all_packages':None}  
+             'pop_packages':get_popular_packages(request=request)}  
     print(context)
     return render(request=request,template_name="index.html",context=context)
 
@@ -26,7 +27,7 @@ def loginform(request):
         context={'alert':'Email is not registered'}
         if email_exists(email=email):
             if(authenticate(email=email,password=password)):
-                time=0
+                time=7200
                 if 'remember' in request.POST:
                     time=2592000
                 store_session(request=request,email=email,password=password,time=time)
@@ -91,6 +92,25 @@ def logout(request):
 def email_exists(email):
     return Users.objects.filter(email=email).exists()
 
+def make_bookings(request):
+    pid=request.GET.get('id',None)
+    date=request.GET.get('date',None)
+    if not pid:
+        return redirect("website:index")
+    uid=request.session.get['uid']
+    if not uid > 1:
+         return redirect("website:login")
+    else: 
+        place_booking(request=request,uid=uid,pid=pid)
+        return redirect("website:index")
+def place_booking(request,uid=None,pid=None,dtb=datetime.date.today()):
+    if uid or pid is None:
+        print("SERVER ERROR")
+        return redirect("website:index")
+    booking=Bookings(dateToBoook=dtb,package_id=pid,user_id=uid,approved=False)
+    booking.save()
+    return 
+    
 
 # POST to DATABASE "Users"
 def add_new_user(name,email,password):
@@ -181,3 +201,6 @@ def get_top_packages(request,Type=None,all_packages=False):
     else:
         return all_data[:3]
     
+def get_popular_packages(request):
+    all_data = Packages.objects.select_related('destination').filter(destination__in=[1,2,12])[:4]
+    return all_data

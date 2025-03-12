@@ -10,4 +10,5 @@ urlpatterns = [
     path('myEdit/',views.accountedit,name='accountedit'),
     path('logout/',views.logout,name='logout'),
     path('update_content/',views.update_section,name='update_content'),
+    path('make_booking/',views.make_bookings,name='make_booking'),
 ]

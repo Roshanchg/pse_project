@@ -1,0 +1,14 @@
+{% load static %}
+{% for package in pop_packages %}
+<div class="destination-single">
+    <img src="{% static 'Images/'%}{{ package.destination.image }}" class="popular-images">
+    <span class="pop-dest-title" style="flex-wrap: wrap;text-wrap:wrap;">
+        {{package.destination.name}}
+    </span>
+    <div class="pop-dest-detail">
+        <span>NRP.&nbsp;{{package.price}} / person</span>
+        <span>{{package.time}}</span>
+    </div>
+    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
+</div>
+{% endfor %}

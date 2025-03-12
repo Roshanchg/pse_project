@@ -126,61 +126,16 @@
                 </div>
             </div>
             <div id="destinations">
-                <div class="destination-single">
-                    <img src="{% static 'Images/pokhara.png' %}" class="popular-images">
-                    <span class="pop-dest-title">
-                        Pokhara
-                    </span>
-                    <div class="pop-dest-detail">
-                        <span>20+ Spots</span>
-                        <span>2D & 3N</span>
-                    </div>
-                    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
-                </div>
-
-                <div class="destination-single">
-                    <img src="{% static 'Images/mustang.png' %}" class="popular-images">
-                    <span class="pop-dest-title">
-                        Mustang
-                    </span>
-                    <div class="pop-dest-detail">
-                        <span>25+ Spots</span>
-                        <span>3D & 3N</span>
-                    </div>
-                    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
-                </div>
-
-                <div class="destination-single">
-                    <img src="{% static 'Images/rara.png' %}" class="popular-images">
-                    <span class="pop-dest-title">
-                        Rara
-                    </span>
-                    <div class="pop-dest-detail">
-                        <span>20+ Spots</span>
-                        <span>3D & 2N</span>
-                    </div>
-                    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
-                </div>
-                <div class="destination-single">
-                    <img src="{% static 'Images/pokhara.png' %}" class="popular-images">
-                    <span class="pop-dest-title">
-                        Pokhara
-                    </span>
-                    <span class="pop-dest-detail">
-                        <span>20+ Spots</span>
-                        <span>3D & 2N</span>
-                    </span>
-                    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
-                </div>
+                {% include 'destinations_section.html' %}
             </div>
         </section>
         <section id="recommendations">
             <span id="rec-title" onclick="window.location.href='#recommendations'">Best Packages For You</span>
             <div id="filters">
                 <button id="hot-button" class="filter-buttons" data-type="" hx-get="{% url 'website:update_content' %}" hx-target="#discover-contents-closed" hx-swap="innerHTML">Hot Deals</button>
-                <button class="filter-buttons" data-type="backpack" hx-get="{% url 'website:update_content' %}?type=backpack" hx-target="#discover-contents-closed" hx-swap="innerHTML">Backpack</button>
+                <button class="filter-buttons" data-type="trekking" hx-get="{% url 'website:update_content' %}?type=trekking" hx-target="#discover-contents-closed" hx-swap="innerHTML">Trekking</button>
                 <button class="filter-buttons" data-type="honeymoon" hx-get="{% url 'website:update_content' %}?type=honeymoon" hx-target="#discover-contents-closed" hx-swap="innerHTML">Honeymoon</button>
-                <button class="filter-buttons" data-type="rafting" hx-get="{% url 'website:update_content' %}?type=rafting" hx-target="#discover-contents-closed" hx-swap="innerHTML">Rafting</button>
+                <button class="filter-buttons" data-type="safari" hx-get="{% url 'website:update_content' %}?type=safari" hx-target="#discover-contents-closed" hx-swap="innerHTML">Safari</button>
                 <button class="filter-buttons" data-type="himalayan" hx-get="{% url 'website:update_content' %}?type=himalayan" hx-target="#discover-contents-closed" hx-swap="innerHTML">Himalayan</button>
                 <button class="filter-buttons" data-type="" hx-get="{% url 'website:update_content' %}" hx-target="#discover-contents-closed" hx-swap="innerHTML">More</button>
             </div>

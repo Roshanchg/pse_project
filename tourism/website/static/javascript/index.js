@@ -1,5 +1,11 @@
+document.getElementById('goto-login').addEventListener("click",function(){
+    url=this.getAttribute('data-url');
+    if(url){
+        window.location.href=url;
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
-    let maincontainer=document.getElementById('discover-contents-closed');
     let activeType = ""; // Stores the currently active filter type
 
     // Ensure the 'hot-button' is active on page load

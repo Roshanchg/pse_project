@@ -34,5 +34,6 @@ class Bookings(models.Model):
     package=models.ForeignKey(Packages,on_delete=models.CASCADE)
     dateToBook=models.DateField(default=datetime.date.today)
     bookedWhen=models.DateField(default=datetime.date.today)
+    approved=models.BooleanField(default=False)
     def __str__(self):
-        return f"{self.package} by {self.user} at {self.bookedWhen} for {self.dateToBook}"
+        return f"{self.package} by {self.user} at {self.bookedWhen} for {self.dateToBook} approved?:{self.approved}"
