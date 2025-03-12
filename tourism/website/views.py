@@ -9,7 +9,6 @@ def index(request):
     context={'session':get_session_context(request=request),
              'top_packages':get_top_packages(request=request,Type=None,all_packages=False),
              'pop_packages':get_popular_packages(request=request)}  
-    print(context)
     return render(request=request,template_name="index.html",context=context)
 
 def update_section(request):
@@ -27,7 +26,7 @@ def loginform(request):
         context={'alert':'Email is not registered'}
         if email_exists(email=email):
             if(authenticate(email=email,password=password)):
-                time=7200
+                time=0
                 if 'remember' in request.POST:
                     time=2592000
                 store_session(request=request,email=email,password=password,time=time)
@@ -111,6 +110,12 @@ def place_booking(request,uid=None,pid=None,dtb=datetime.date.today()):
     booking.save()
     return 
     
+def delete_account(request):
+    uid=request.session['uid']
+    user=Users.objects.filter(id=uid).first()
+    user.delete()
+    clear_session(request=request)
+    return redirect("website:index")
 
 # POST to DATABASE "Users"
 def add_new_user(name,email,password):
@@ -143,7 +148,7 @@ def authenticate(email,password):
 def get_uid(email):
     return Users.objects.filter(email=email).first().id
 
-def store_session(request,email,password,time=7200):
+def store_session(request,email,password,time=0):
     request.session['email']=email
     request.session['password']=email
     request.session['uid']=get_uid(email=email)

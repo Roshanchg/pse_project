@@ -84,8 +84,10 @@
                         <span style="font-weight: 600;">{{ email }}</span>
                         <span style="font-size: 14px;">{{ doj }}</span>
                     </div>
+                    <a id="delete-account" href="{% url 'website:delete_account' %}">Delete</a>
                 </div>
             </div>
         </section>
+        <script type="text/javascript" src="{% static 'javascript/account.js' %}"></script>
     </body>
 </html>

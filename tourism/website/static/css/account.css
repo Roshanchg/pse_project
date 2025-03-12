@@ -159,6 +159,19 @@ section{
     flex-direction: column;
     justify-content: space-between;
 }
+#delete-account{
+    background-color: #A60000;
+    color:  white;
+    text-decoration: none;
+    width: 17%;
+    height: 50%;
+    position: relative;
+    left: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
 button{
     cursor: pointer;
 }
