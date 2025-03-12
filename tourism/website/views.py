@@ -13,7 +13,7 @@ def index(request):
 
 def update_section(request):
     all_packages=request.GET.get('all',False)
-    mytype=request.GET.get("type",None)  
+    mytype=request.GET.get("type",None) 
     context={'session':get_session_context(request=request),
              'top_packages':get_top_packages(request=request,Type=mytype,all_packages=all_packages),
         }
@@ -123,7 +123,7 @@ def authenticate(email,password):
 def get_uid(email):
     return Users.objects.filter(email=email).first().id
 
-def store_session(request,email,password,time=0):
+def store_session(request,email,password,time=7200):
     request.session['email']=email
     request.session['password']=email
     request.session['uid']=get_uid(email=email)
@@ -176,7 +176,7 @@ def get_top_packages(request,Type=None,all_packages=False):
         all_data = Packages.objects.select_related('destination').order_by('bookingcount')
     else:
         all_data = Packages.objects.select_related('destination').filter(ptype__icontains=Type).order_by('bookingcount')
-    if all_packages==True:
+    if all_packages!=False:
         return all_data
     else:
         return all_data[:3]

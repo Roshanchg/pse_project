@@ -177,18 +177,21 @@
         <section id="recommendations">
             <span id="rec-title" onclick="window.location.href='#recommendations'">Best Packages For You</span>
             <div id="filters">
-                <button id="hot-button" class="filter-buttons" hx-get="{% url 'website:update_content' %}" hx-target="#discover-contents-closed" hx-swap="innerHTML">Hot Deals</button>
-                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?type=backpack" hx-target="#discover-contents-closed" hx-swap="innerHTML">Backpack</button>
-                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?type=honeymoon" hx-target="#discover-contents-closed" hx-swap="innerHTML">Honeymoon</button>
-                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?type=rafting" hx-target="#discover-contents-closed" hx-swap="innerHTML">Rafting</button>
-                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?type=himalayan" hx-target="#discover-contents-closed" hx-swap="innerHTML">Himalayan</button>
-                <button class="filter-buttons" hx-get="{% url 'website:update_content' %}?" hx-target="#discover-contents-closed" hx-swap="innerHTML">More</button>
+                <button id="hot-button" class="filter-buttons" data-type="" hx-get="{% url 'website:update_content' %}" hx-target="#discover-contents-closed" hx-swap="innerHTML">Hot Deals</button>
+                <button class="filter-buttons" data-type="backpack" hx-get="{% url 'website:update_content' %}?type=backpack" hx-target="#discover-contents-closed" hx-swap="innerHTML">Backpack</button>
+                <button class="filter-buttons" data-type="honeymoon" hx-get="{% url 'website:update_content' %}?type=honeymoon" hx-target="#discover-contents-closed" hx-swap="innerHTML">Honeymoon</button>
+                <button class="filter-buttons" data-type="rafting" hx-get="{% url 'website:update_content' %}?type=rafting" hx-target="#discover-contents-closed" hx-swap="innerHTML">Rafting</button>
+                <button class="filter-buttons" data-type="himalayan" hx-get="{% url 'website:update_content' %}?type=himalayan" hx-target="#discover-contents-closed" hx-swap="innerHTML">Himalayan</button>
+                <button class="filter-buttons" data-type="" hx-get="{% url 'website:update_content' %}" hx-target="#discover-contents-closed" hx-swap="innerHTML">More</button>
             </div>
+            
             <div id="discover-contents-closed">
                 {% include 'package_section.html' %}
             </div>
-            <button id="discover-more">Discover More</button>
+            
+            <button id="discover-more" data-url="{% url 'website:update_content' %}?all=True">Discover More</button>
         </section>
+        
         <section id="info">
             <span id="info-title" onclick="window.location.href='#info'">Book Your Next Trip in 3 Easy Steps</span>
             <span id="info-subtitle">Easy and Fast</span>
@@ -346,6 +349,5 @@
         </section>
 
         <script src="{% static 'javascript/index.js' %}" ></script>
-
     </body>
 </html>
