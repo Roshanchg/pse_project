@@ -4,11 +4,17 @@ document.getElementById('goto-login').addEventListener("click",function(){
         window.location.href=url;
     }
 });
-document.getElementById('book-now').addEventListener("click",function(){
-    url=this.getAttribute('data-url');
-    if(url){
-        window.location.href=url;
-    }
+
+const nextIcons = document.querySelectorAll('.next-icon');
+
+// Loop through each element and add the event listener
+nextIcons.forEach(function(icon) {
+    icon.addEventListener("click", function() {
+        const url = this.getAttribute('data-url');
+        if (url) {
+            window.location.href = url; // Redirect to the URL
+        }
+    });
 });
 document.addEventListener("DOMContentLoaded", function () {
     let activeType = ""; // Stores the currently active filter type
