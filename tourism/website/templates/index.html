@@ -144,7 +144,7 @@
                 {% include 'package_section.html' %}
             </div>
             
-            <button id="discover-more" data-url="{% url 'website:update_content' %}?all=True">Discover More</button>
+            <button id="discover-more" data-url="{% url 'website:update_content' %}">Discover More</button>
         </section>
         
         <section id="info">
@@ -291,7 +291,7 @@
                 </div>
                 <div id="sub-right">
                     <div id="facebook-logo">f</div>
-                    <div id="instagram-logo">
+                    <div id="instagram-logo" onclick="window.location.href='insta/'">
                         <div >
                             <div>
 

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+            rel="stylesheet">
+    </head>
+    <body>
+        <div id="back">
+            <img src="{% static 'Images/arrow-back.svg' %}" id="home" style="cursor: pointer;" data-url="{% url 'website:index' %}">
+        </div>
+        <div id="main">
+            <form name="booking-form" id="booking-form" method="POST">
+                {% csrf_token %}
+                <img id="dest-image" src="{% static 'Images/' %}{{ package.destination.image }}">
+                <div id="form-right">
+                    <input type="text" name="dest-name" id="dest-name" value="{{ package.destination.name }}" readonly>
+                    <div id="form-right-bottom">
+                        <div id="user-inputs">
+                            <div id="date-div">
+                                <span>Date</span>
+                                <input type="date" name="book-date" required>
+                            </div>
+                            <div id="date-div">
+                                <span>How many People?</span>
+                                <input type="number" name="book-quantity" value="1" id='book-quantity'required >
+                            </div>
+                        </div>
+                        <div id="buttons">
+                            <button type="submit" id="book">Book</button>
+                            <button id="discard" type="button" data-url="{% url 'website:index' %}">Discard</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+                <div id="big-div">
+                    <div id="left-big">
+                        <div id="description-div">
+                            <span>Description</span>
+                            <textarea readonly>{{ package.desc }}</textarea>
+                        </div>
+                        <div id="type-div">
+                            <span>Type</span>
+                            <input type="text" value="{{ package.ptype }}" class="non-desc-div" readonly>
+                        </div>
+                    </div>
+                    <div id="right-big">
+                        <div id="Rate-div">
+                            <span>Rate per person</span>
+                            <input type="number" id="price" value="{{ package.price }}" class="non-desc-div" readonly>
+                        </div>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="total">
+                    <span>Total:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span style="display: flex;color: rgba(0, 0, 0, 0.65);">NRP.&nbsp;
+                        <span id="total-price">{{ package.price }}</span>
+                    </span>
+                </div>
+        </div>
+        <script type="text/javascript" src="{% static 'javascript/booking.js' %}"></script>
+    </body>
+</html>

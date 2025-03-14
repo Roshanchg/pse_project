@@ -1,0 +1,86 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+            rel="stylesheet">
+    </head>
+    <body>    
+        <div id="back">
+            <img src="{% static 'Images/arrow-back.svg' %}" id="home" style="cursor: pointer;" data-url="{% url 'website:index' %}">
+        </div>    
+        <div id="main">
+            <div id="left">
+                <div id="price-card">
+                    <div id="bolder-price">
+                        <span id="bold-price">NRP. {{ package.price }}</span>
+                        <span>
+                            <span class="real-light">Per</span>
+                            <span class="real-light">Person</span>
+                        </span>
+                    </div>
+                    <div id="initial-price">
+                        <span class="price-card-title">Initial Price</span>
+                        <span class="bolder">NRP. {{ package.price }}</span>
+                    </div>
+                    <div id="quantity">
+                        <span class="price-card-title">Number of People</span>
+                        <span class="bolder">{{ quantity }}</span>
+                    </div>
+                    <div id="total">
+                        <span class="price-card-title">Total</span>
+                        <span class="bolder">NRP. {{ total }}</span>
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <span style="color: rgba(0, 0, 0, 0.8);">Contact Information</span>
+                <div id="email-field">
+                    <input type="text" value="Email" id='email-text'readonly>
+                    <input type="email" value="{{ email }}" id="email-val" readonly>
+                </div>
+                <span class="topics">Payment method</span>
+                <form method="POST" name="payment" id="payment">
+                    {% csrf_token %}
+                    <div id="top-form">
+                        <span class="form-span">Card information</span>
+                        <div id="card-info">
+                            <input type="text" placeholder="Enter text" name="card-number" required>
+                            <div id="card-images">
+                                <img src="{% static 'Images/mastercard.png' %}">
+                                <img src="{% static 'Images/visacard.png' %}">
+                            </div>
+                        </div>
+                        <div id="card-more">
+                            <input type="text" placeholder="MM / YY" name="card-exp" required>
+                            <div>
+                                <input type="text" placeholder="CVC" name="card-cvc" required>
+                                <img src="{% static 'Images/cvc.png' %}">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="middle-form">
+                        <span class="form-span">Cardholder name</span>
+                        <input type="text" placeholder="Full name on card" name="full-name" required>
+                    </div>
+                    <div id="bottom-form">
+                        <span class="form-span">Country & Region</span>
+                        <input type="text" name="country" placeholder="Country" id="country-inp" required>
+                        <input type="text" name="city" placeholder="City" id="city-inp" required>
+                        <input type="text" name="state" placeholder="State" id="state-inp" required>  
+                    </div>
+                    <button type="submit" id="pay">Pay</button>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="{% static 'javascript/payment.js' %}"  ></script>
+    </body>
+</html>

@@ -9,6 +9,6 @@
         <span>NRP.&nbsp;{{package.price}} / person</span>
         <span>{{package.time}}</span>
     </div>
-    <img src="{% static 'Images/next-icon.png' %}" class="next-icon">
+    <img src="{% static 'Images/next-icon.png' %}" class="next-icon" id="book-now" data-url="{% url 'website:booking' %}?id={{ package.id }}">
 </div>
 {% endfor %}

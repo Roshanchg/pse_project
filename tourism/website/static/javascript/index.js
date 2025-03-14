@@ -4,7 +4,12 @@ document.getElementById('goto-login').addEventListener("click",function(){
         window.location.href=url;
     }
 });
-
+document.getElementById('book-now').addEventListener("click",function(){
+    url=this.getAttribute('data-url');
+    if(url){
+        window.location.href=url;
+    }
+});
 document.addEventListener("DOMContentLoaded", function () {
     let activeType = ""; // Stores the currently active filter type
 

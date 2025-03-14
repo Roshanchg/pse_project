@@ -10,6 +10,8 @@ urlpatterns = [
     path('myEdit/',views.accountedit,name='accountedit'),
     path('logout/',views.logout,name='logout'),
     path('update_content/',views.update_section,name='update_content'),
-    path('make_booking/',views.make_bookings,name='make_booking'),
-    path('delete_account',views.delete_account,name="delete_account")
+    path('booking/',views.booking,name='booking'),
+    path('delete_account',views.delete_account,name="delete_account"),
+    path('insta/',views.insta,name="instagram"),
+    path('booking/makepayment/',views.make_payment,name="payment"),
 ]

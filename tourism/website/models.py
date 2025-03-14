@@ -29,11 +29,25 @@ class Packages(models.Model):
     def __str__(self):
         return f"{self.destination} for {self.price} for{self.time}"
 
+class Payment_Info(models.Model):
+    number=models.CharField(max_length=100,null=False,default='0000000')
+    exp=models.CharField(max_length=10,null=False,default="00/00")
+    cvc=models.CharField(max_length=50,null=False,default="00000")
+    holder=models.CharField(max_length=100,null=False)
+    country=models.CharField(max_length=100,null=False)
+    city=models.CharField(max_length=100,null=False)
+    state=models.CharField(max_length=100,null=False)
+    def __str__(self):
+        return f"{self.holder}'s card, number {self.number}"
+
+
 class Bookings(models.Model):
     user=models.ForeignKey(Users,on_delete=models.CASCADE)
     package=models.ForeignKey(Packages,on_delete=models.CASCADE)
     dateToBook=models.DateField(default=datetime.date.today)
     bookedWhen=models.DateField(default=datetime.date.today)
-    approved=models.BooleanField(default=False)
+    payment=models.ForeignKey(Payment_Info,on_delete=models.CASCADE)
+    quantity=models.IntegerField(default=1)
+    total=models.IntegerField(default=-1)
     def __str__(self):
-        return f"{self.package} by {self.user} at {self.bookedWhen} for {self.dateToBook} approved?:{self.approved}"
+        return f"{self.package} by {self.user} at {self.bookedWhen} for {self.dateToBook} cost: {-1}"

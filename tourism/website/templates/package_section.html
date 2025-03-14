@@ -12,7 +12,7 @@
             <img src="{% static 'Images/location.svg' %}" class="location-icon">
             <span class="package-location">{{ package.destination.name }}</span>
         </div>
-        <a class="book-now" href="#">Book Now</a>
+        <a class="book-now" href="{% url 'website:booking' %}?id={{ package.id }}">Book Now</a>
     </div>
 </div> 
 {% endfor %}

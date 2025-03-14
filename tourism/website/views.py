@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from website.models import Users,Destinations,Packages,Bookings
+from website.models import Users,Destinations,Packages,Bookings,Payment_Info
 from django.contrib.sessions.models import Session
 from django.http import Http404
 import datetime
@@ -91,25 +91,34 @@ def logout(request):
 def email_exists(email):
     return Users.objects.filter(email=email).exists()
 
-def make_bookings(request):
+def booking(request):
     pid=request.GET.get('id',None)
-    date=request.GET.get('date',None)
-    if not pid:
-        return redirect("website:index")
-    uid=request.session.get['uid']
-    if not uid > 1:
-         return redirect("website:login")
-    else: 
-        place_booking(request=request,uid=uid,pid=pid)
-        return redirect("website:index")
-def place_booking(request,uid=None,pid=None,dtb=datetime.date.today()):
-    if uid or pid is None:
-        print("SERVER ERROR")
-        return redirect("website:index")
-    booking=Bookings(dateToBoook=dtb,package_id=pid,user_id=uid,approved=False)
-    booking.save()
-    return 
+    package=get_package_details(pid=pid)
+    if request.method=="POST":
+        bookedfor=request.POST['book-date']
+        quantity=request.POST['book-quantity']
+        quantity=int(quantity)
+        totalPrice=quantity*package.price
+        if bookedfor and quantity and totalPrice and package:
+            request.session['booking_flag']=True
+            request.session['date']=str(bookedfor)
+            request.session['pid']=pid
+            request.session['total']=totalPrice
+            request.session['quantity']=quantity
+            return redirect("website:payment")
+
+    if not request.session.get('email'):
+        return redirect(to='website:login')
+    if not package or not pid:
+        redirect("website:index")
+    context={'package':package}
+
+    return render(request=request,template_name="booking.html",context=context)
     
+def get_package_details(pid):
+    package=Packages.objects.select_related("destination").filter(id=pid).first()
+    return package
+
 def delete_account(request):
     uid=request.session['uid']
     user=Users.objects.filter(id=uid).first()
@@ -117,6 +126,76 @@ def delete_account(request):
     clear_session(request=request)
     return redirect("website:index")
 
+def make_payment(request):
+    if not request.session.get('booking_flag')==True:
+        return redirect('website:index')
+    date=request.session.get('date')
+    pid=request.session.get('pid')
+    email=request.session.get('email')
+    total=request.session.get('total')
+    quantity=request.session.get('quantity')
+    if request.method=="POST":
+        uid=get_uid(email=email)
+        if not uid:
+            redirect('website:login')
+        number=request.POST['card-number']
+        exp=request.POST['card-exp']
+        cvc=request.POST['card-cvc']
+        holder=request.POST['full-name']
+        country=request.POST['country']
+        city=request.POST['city']
+        state=request.POST['state']
+        payment_id=get_payment_id(number=number)
+        if not payment_id:
+                add_payment(number=number,exp=exp,cvc=cvc,holder=holder,country=country,city=city,state=state)
+        payment_id=get_payment_id(number=number)
+        if not payment_id:
+            redirect('website:index')
+        place_booking(request=request,uid=uid,pid=pid,dtb=date,quantity=quantity,total=total,payment=payment_id)
+    else:
+        if date and pid and email and total and quantity:
+            context={'email':email,
+                    'total':total,
+                    'quantity':quantity,
+                    'package':get_package_details(pid=pid)}
+            return render(request=request,template_name="payment.html",context=context)
+        else:
+            return redirect('website:index')
+    return redirect('website:index')
+
+
+def add_payment(number,exp,cvc,holder,country,city,state):
+    try:
+        payment=Payment_Info(number=number,exp=exp,cvc=cvc,holder=holder,country=country,city=city,state=state)
+        payment.save()
+    except Exception as e:
+        print(e)
+
+def place_booking(request,payment,uid=None,pid=None,dtb=datetime.date.today(),quantity=1,total=-1):
+    if not uid and not pid :
+        print("SERVER ERROR")
+        return redirect("website:index")
+    try:
+        paymentIns=Payment_Info.objects.get(id=payment)
+        booking=Bookings(dateToBook=dtb,package_id=pid,user_id=uid,quantity=quantity,total=total,payment=paymentIns)
+        booking.save()
+        # request.session.pop("booking_flag",None)
+        # request.session.pop("card-number",None)
+        # request.session.pop("card-exp",None)
+        # request.session.pop("card-cvc",None)
+        # request.session.pop("full-name",None)
+        # request.session.pop("country",None)
+        # request.session.pop("city",None)
+        # request.session.pop("state",None)
+    except Exception as e:
+        print(e)
+        return redirect('website:index')
+def get_payment_id(number):
+    payment=Payment_Info.objects.filter(number=number).first()
+    try:
+        return payment.id
+    except:
+        return None
 # POST to DATABASE "Users"
 def add_new_user(name,email,password):
     try:
@@ -146,7 +225,11 @@ def authenticate(email,password):
         return False
     
 def get_uid(email):
-    return Users.objects.filter(email=email).first().id
+    user=Users.objects.filter(email=email).first()
+    try:
+        return user.id
+    except:
+        return None
 
 def store_session(request,email,password,time=0):
     request.session['email']=email
@@ -209,3 +292,6 @@ def get_top_packages(request,Type=None,all_packages=False):
 def get_popular_packages(request):
     all_data = Packages.objects.select_related('destination').filter(destination__in=[1,2,12])[:4]
     return all_data
+
+def insta(request):
+    return redirect ("https://www.instagram.com/reel/DGcdlLpyWkM/?utm_source=ig_web_copy_link") 
