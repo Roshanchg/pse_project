@@ -8,6 +8,10 @@ Make sure you have the following installed:
     ```bash
     pip install django
     ```
+- **Database File**: The Sqlite3 file is stored in google drive.
+    ```bash
+    https://drive.google.com/file/d/12O4RVUlOmmTxVxIcNEI0PJueuq-BJJST/view?usp=sharing
+    ```
 ## Steps to Run the Website
 
 1. **Clone the Repository**
@@ -20,6 +24,7 @@ Make sure you have the following installed:
     ```bash
     cd tourism
     ```
+    paste the database file here
 
 3. **Make Migrations**
     Generate migration files for the database:
