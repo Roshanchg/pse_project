@@ -22,12 +22,12 @@ class Destinations(models.Model):
 class Packages(models.Model):
     destination=models.ForeignKey(Destinations,on_delete=models.CASCADE)
     desc=models.CharField(max_length=500,null=False)
-    price=models.IntegerField(null=False,default=0)
+    price_in_k=models.IntegerField(null=False,default=0)
     time=models.CharField(max_length=100,null=False,default="3 Days, 3 Nights")
     ptype=models.CharField(max_length=100,null=True)
     bookingcount=models.IntegerField(null=False,default=0)
     def __str__(self):
-        return f"{self.destination} for {self.price} for{self.time}"
+        return f"{self.destination} for {self.price_in_k}K for {self.time}"
 
 class Payment_Info(models.Model):
     number=models.CharField(max_length=100,null=False,default='0000000')
@@ -50,4 +50,4 @@ class Bookings(models.Model):
     quantity=models.IntegerField(default=1)
     total=models.IntegerField(default=-1)
     def __str__(self):
-        return f"{self.package} by {self.user} at {self.bookedWhen} for {self.dateToBook} cost: {-1}"
+        return f"{self.package} by {self.user} at {self.bookedWhen} for {self.dateToBook} total: {self.total}"

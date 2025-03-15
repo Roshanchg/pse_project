@@ -98,7 +98,7 @@ def booking(request):
         bookedfor=request.POST['book-date']
         quantity=request.POST['book-quantity']
         quantity=int(quantity)
-        totalPrice=quantity*package.price
+        totalPrice=quantity*package.price_in_k*1000
         if bookedfor and quantity and totalPrice and package:
             request.session['booking_flag']=True
             request.session['date']=str(bookedfor)
@@ -178,6 +178,8 @@ def place_booking(request,payment,uid=None,pid=None,dtb=datetime.date.today(),qu
     try:
         paymentIns=Payment_Info.objects.get(id=payment)
         booking=Bookings(dateToBook=dtb,package_id=pid,user_id=uid,quantity=quantity,total=total,payment=paymentIns)
+        booking.package.bookingcount+=1
+        booking.package.save()
         booking.save()
         request.session.pop("booking_flag",None)
         request.session.pop("card-number",None)

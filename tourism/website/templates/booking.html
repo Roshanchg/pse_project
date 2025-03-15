@@ -55,8 +55,8 @@
                     </div>
                     <div id="right-big">
                         <div id="Rate-div">
-                            <span>Rate per person</span>
-                            <input type="number" id="price" value="{{ package.price }}" class="non-desc-div" readonly>
+                            <span>Rate per person </span>
+                            <input type="text" id="price" value="{{ package.price_in_k }} K" class="non-desc-div" readonly>
                         </div>
                         <div></div>
                     </div>
@@ -64,7 +64,7 @@
                 <div id="total">
                     <span>Total:&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span style="display: flex;color: rgba(0, 0, 0, 0.65);">NRP.&nbsp;
-                        <span id="total-price">{{ package.price }}</span>
+                        <span id="total-price"></span>
                     </span>
                 </div>
         </div>

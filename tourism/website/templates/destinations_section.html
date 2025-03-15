@@ -6,7 +6,7 @@
         {{package.destination.name}}
     </span>
     <div class="pop-dest-detail">
-        <span>NRP.&nbsp;{{package.price}} / person</span>
+        <span>NRP.&nbsp;{{package.price_in_k}}K / person</span>
         <span>{{package.time}}</span>
     </div>
     <img src="{% static 'Images/next-icon.png' %}" class="next-icon" data-url="{% url 'website:booking' %}?id={{ package.id }}">

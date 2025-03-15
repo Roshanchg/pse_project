@@ -4,7 +4,7 @@
     <img src="{% static 'Images/'%}{{ package.destination.image }}">
     <div class="package-info">
         <span class="package-time">{{ package.time }}</span>
-        <span class="package-rate">NRP&nbsp;{{ package.price }} / person</span>
+        <span class="package-rate">NRP&nbsp;{{ package.price_in_k }}K / person</span>
     </div>
     <span class="package-desc">{{ package.desc }}</span>
     <div class="discover-content-bottom">
