@@ -78,6 +78,7 @@ def accountedit(request):
         country=request.POST['edit-country']        
         nickname=request.POST['edit-nickname']        
         edit_user_details(id=uid,name=name,email=email,gender=gender,nickname=nickname,country=country)
+        request.session['email']=email
         details=get_user_details(request=request)
         return render(request=request,template_name="accountedit.html",context=details)
     if not details:
@@ -235,16 +236,14 @@ def get_uid(email):
 
 def store_session(request,email,password,time=0):
     request.session['email']=email
-    request.session['password']=email
     request.session['uid']=get_uid(email=email)
     request.session.set_expiry(time)
 
 def get_session_context(request):
     uid=request.session.get('uid')
     email=request.session.get('email')
-    password=request.session.get('password')
-    context={'uid':uid,'email':email,'password':password}
-    if not uid or not email or not password:
+    context={'uid':uid,'email':email}
+    if not uid or not email:
         return None
     return context 
 
