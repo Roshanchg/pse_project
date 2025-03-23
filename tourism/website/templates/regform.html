@@ -30,12 +30,12 @@
             <form method="POST" name="regform" id="reg-form">
                 {% csrf_token %}
                 <label for="fullname">Full Name</label><br>
-                <input type="text" name="fullname" id="name" class="input-field" placeholder="John Doe" ><br>
+                <input type="text" name="fullname" id="name" class="input-field" placeholder="John Doe" required><br>
                 <label for="email">Email address</label><br>
-                <input type="email" name="reg-email" id="email" class="input-field" placeholder="abc@example.com" ><br>
+                <input type="email" name="reg-email" id="email" class="input-field" placeholder="abc@example.com" required><br>
                 <label for="password">Password</label> <br>
                 <div id="password-div">
-                    <input type="password" name="reg-password" id="reg-password" class="input-field" placeholder="password">
+                    <input type="password" name="reg-password" id="reg-password" class="input-field" placeholder="password" required>
                     <img src="{% static 'Images/eye_open.svg' %}" id="show-pass" onclick="togglePasswordVisibility()">
                 </div>
                 <input type="checkbox" name="terms" value="false" id="terms" required>
